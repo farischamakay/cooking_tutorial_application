@@ -1,4 +1,6 @@
+import 'package:cooking_tutorial_application/animation/animation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/animation.dart';
 
 class LoginPage extends StatefulWidget {
   static const nameRoute = '/loginpage';
@@ -14,58 +16,60 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             gradient: LinearGradient(begin: Alignment.topCenter, colors: [
-          Color.fromARGB(255, 226, 85, 9),
-          Color.fromARGB(255, 239, 108, 0),
+          Color(0xffed073f),
+          Color(0xfff70a2a),
           Color.fromARGB(255, 248, 160, 28)
         ])),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(
+            const SizedBox(
               height: 80,
             ),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
+                children: const <Widget>[
+                  DelayedDisplay(
+                      child: Text(
                     "Login",
                     style: TextStyle(color: Colors.white, fontSize: 40),
-                  ),
+                  )),
                   SizedBox(
                     height: 10,
                   ),
-                  Text(
+                  DelayedDisplay(
+                      child: Text(
                     "Welcome Back",
                     style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
+                  )),
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(60),
                         topRight: Radius.circular(60))),
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: EdgeInsets.all(30),
+                    padding: const EdgeInsets.all(30),
                     child: Column(
                       children: <Widget>[
-                        SizedBox(
+                        const SizedBox(
                           height: 60,
                         ),
                         Container(
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                     color: Color.fromRGBO(225, 95, 27, .3),
                                     blurRadius: 20,
@@ -73,28 +77,29 @@ class _LoginPageState extends State<LoginPage> {
                               ]),
                           child: Column(
                             children: <Widget>[
-                              Container(
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
+                              DelayedDisplay(
+                                  child: Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: const BoxDecoration(
                                     border: Border(
                                         bottom: BorderSide(
                                             color: Color.fromARGB(
                                                 255, 238, 238, 238)))),
-                                child: TextField(
+                                child: const TextField(
                                   decoration: InputDecoration(
                                       hintText: "Email or Phone number",
                                       hintStyle: TextStyle(color: Colors.grey),
                                       border: InputBorder.none),
                                 ),
-                              ),
+                              )),
                               Container(
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
+                                padding: const EdgeInsets.all(10),
+                                decoration: const BoxDecoration(
                                     border: Border(
                                         bottom: BorderSide(
                                             color: Color.fromARGB(
                                                 255, 238, 238, 238)))),
-                                child: TextField(
+                                child: const TextField(
                                   decoration: InputDecoration(
                                       hintText: "Password",
                                       hintStyle: TextStyle(color: Colors.grey),
@@ -104,22 +109,22 @@ class _LoginPageState extends State<LoginPage> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
-                        Text(
+                        const Text(
                           "Forgot Password?",
                           style: TextStyle(color: Colors.grey),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
                         Container(
                           height: 50,
-                          margin: EdgeInsets.symmetric(horizontal: 50),
+                          margin: const EdgeInsets.symmetric(horizontal: 50),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
-                              color: Colors.orange[900]),
+                              color: const Color(0xffed073f)),
                           child: const Center(
                             child: Text(
                               "Login",
@@ -129,15 +134,15 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 50,
                         ),
                         TextButton(
                           onPressed: () {},
-                          child: Text("Register",
-                              style: TextStyle(color: Colors.grey)),
+                          child: const Text("Don't have an account? Click here",
+                              style: TextStyle(color: Colors.blue)),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                       ],

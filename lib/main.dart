@@ -1,4 +1,6 @@
+import 'package:cooking_tutorial_application/screens/homepage.dart';
 import 'package:cooking_tutorial_application/screens/login_page.dart';
+import 'package:cooking_tutorial_application/screens/register_page.dart';
 import 'package:cooking_tutorial_application/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,8 +19,10 @@ class MyApp extends StatelessWidget {
       initialRoute: Splash.nameRoutes,
       debugShowCheckedModeBanner: false,
       routes: {
-        Splash.nameRoutes: (context) => Splash(),
+        Splash.nameRoutes: (context) => const Splash(),
         LoginPage.nameRoute: (context) => LoginPage(),
+        RegisterPage.nameRoute: (context) => RegisterPage(),
+        HomePage.nameRoute: (context) => HomePage(),
       },
     );
   }
