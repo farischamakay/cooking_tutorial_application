@@ -1,16 +1,45 @@
-import 'package:cooking_tutorial_application/animation/animation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/animation.dart';
+import '../../animation/animation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class LoginPage extends StatefulWidget {
-  static const nameRoute = '/loginpage';
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  static const nameRoute = '/register';
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
+  }
+
+  Future signUp() async {
+    if (passwordConfirmed()) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim());
+    }
+  }
+
+  bool passwordConfirmed() {
+    if (_passwordController.text.trim() ==
+        _confirmPasswordController.text.trim()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: const <Widget>[
                   DelayedDisplay(
                       child: Text(
-                    "Login",
+                    "Hi,",
                     style: TextStyle(color: Colors.white, fontSize: 40),
                   )),
                   SizedBox(
@@ -43,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   DelayedDisplay(
                       child: Text(
-                    "Welcome Back",
+                    "Register below with your details",
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   )),
                 ],
@@ -85,9 +114,10 @@ class _LoginPageState extends State<LoginPage> {
                                         bottom: BorderSide(
                                             color: Color.fromARGB(
                                                 255, 238, 238, 238)))),
-                                child: const TextField(
-                                  decoration: InputDecoration(
-                                      hintText: "Email or Phone number",
+                                child: TextField(
+                                  controller: _emailController,
+                                  decoration: const InputDecoration(
+                                      hintText: "Email",
                                       hintStyle: TextStyle(color: Colors.grey),
                                       border: InputBorder.none),
                                 ),
@@ -99,9 +129,25 @@ class _LoginPageState extends State<LoginPage> {
                                         bottom: BorderSide(
                                             color: Color.fromARGB(
                                                 255, 238, 238, 238)))),
-                                child: const TextField(
-                                  decoration: InputDecoration(
+                                child: TextField(
+                                  controller: _passwordController,
+                                  decoration: const InputDecoration(
                                       hintText: "Password",
+                                      hintStyle: TextStyle(color: Colors.grey),
+                                      border: InputBorder.none),
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: const BoxDecoration(
+                                    border: Border(
+                                        bottom: BorderSide(
+                                            color: Color.fromARGB(
+                                                255, 238, 238, 238)))),
+                                child: TextField(
+                                  controller: _confirmPasswordController,
+                                  decoration: const InputDecoration(
+                                      hintText: "Confirm Password",
                                       hintStyle: TextStyle(color: Colors.grey),
                                       border: InputBorder.none),
                                 ),
@@ -112,34 +158,34 @@ class _LoginPageState extends State<LoginPage> {
                         const SizedBox(
                           height: 40,
                         ),
-                        const Text(
-                          "Forgot Password?",
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        const SizedBox(
-                          height: 40,
-                        ),
                         Container(
-                          height: 50,
-                          margin: const EdgeInsets.symmetric(horizontal: 50),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: const Color(0xffed073f)),
-                          child: const Center(
-                            child: Text(
-                              "Login",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
+                            height: 50,
+                            margin: const EdgeInsets.symmetric(horizontal: 50),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: const Color(0xffed073f)),
+                            child: GestureDetector(
+                              onTap: () {
+                                signUp();
+                              },
+                              child: const Center(
+                                child: Text(
+                                  "Register",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            )),
                         const SizedBox(
                           height: 50,
                         ),
+                        const Text("Already have an account? "),
                         TextButton(
-                          onPressed: () {},
-                          child: const Text("Don't have an account? Click here",
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text("Login",
                               style: TextStyle(color: Colors.blue)),
                         ),
                         const SizedBox(

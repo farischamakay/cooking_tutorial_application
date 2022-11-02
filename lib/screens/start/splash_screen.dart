@@ -1,4 +1,7 @@
-import 'package:cooking_tutorial_application/screens/login_page.dart';
+import 'package:cooking_tutorial_application/screens/home/homepage.dart';
+import 'package:cooking_tutorial_application/screens/navigator/bottom_navigator.dart';
+import 'package:cooking_tutorial_application/screens/start/checking_page.dart';
+import 'package:cooking_tutorial_application/screens/start/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -15,8 +18,10 @@ class _SplashState extends State<Splash> {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 5)).then((value) =>
-        {Navigator.pushReplacementNamed(context, LoginPage.nameRoute)});
+    Future.delayed(const Duration(seconds: 5)).then((value) => {
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const LoginPage()))
+        });
   }
 
   @override
