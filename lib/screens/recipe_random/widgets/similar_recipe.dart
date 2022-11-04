@@ -49,7 +49,7 @@ class _RecipeCardWidgetState extends State<RecipeCardWidget> {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => BlocProvider(
                   create: (context) => RecipeDataBloc(),
-                  child: RecipeInfo(
+                  child: RecipeData(
                     id: widget.items.id,
                   ),
                 )));

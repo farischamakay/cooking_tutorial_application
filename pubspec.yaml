@@ -49,6 +49,10 @@ dependencies:
   flutter_html: ^2.2.1
   firebase_dynamic_links: ^5.0.3
   firebase_auth: ^4.1.0
+  curved_navigation_bar: ^1.0.3
+  bottom_nav_bar:
+    git:
+      url: https://github.com/Ansh-Rathod/bottom_nav_bar
 
 dev_dependencies:
   flutter_test:

@@ -1,10 +1,14 @@
 import 'package:cooking_tutorial_application/animation/animation.dart';
 import 'package:cooking_tutorial_application/screens/home/homepage.dart';
+import 'package:cooking_tutorial_application/screens/navigator/bottom_navigator.dart';
 import 'package:cooking_tutorial_application/screens/start/forgot_password.dart';
 import 'package:cooking_tutorial_application/screens/start/register_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/animation.dart';
+import 'authentication/auth.dart';
+import 'authentication/auth_error.dart';
+import '../../animation/animation.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
@@ -17,14 +21,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   // teks controllers
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-
-  Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim());
-  }
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
 
   @override
   void dispose() {
@@ -33,6 +31,8 @@ class _LoginPageState extends State<LoginPage> {
     _passwordController.dispose();
     super.dispose();
   }
+
+  bool visiblePassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -160,36 +160,53 @@ class _LoginPageState extends State<LoginPage> {
                                 ],
                               ),
                             )),
-                        const SizedBox(
-                          height: 40,
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15),
+                          child: authErrorlogin != ''
+                              ? Text(
+                                  textAlign: TextAlign.center,
+                                  authErrorlogin.split(']')[1],
+                                  style: const TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              : null,
                         ),
                         Container(
-                            height: 50,
-                            margin: const EdgeInsets.symmetric(horizontal: 50),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                color: const Color(0xffed073f)),
-                            child: GestureDetector(
-                              onTap: () {
-                                signIn();
-                              },
-                              child: const Center(
-                                child: Text(
-                                  "Login",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
+                          height: 50,
+                          margin: const EdgeInsets.symmetric(horizontal: 50),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: const Color(0xffed073f)),
+                          child: GestureDetector(
+                            onTap: () {
+                              FirebaseAuth.instance
+                                  .signInWithEmailAndPassword(
+                                      email: _emailController.text.trim(),
+                                      password: _passwordController.text.trim())
+                                  .then((value) => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const BottomNavigatorView())));
+                            },
+                            child: const Center(
+                              child: Text(
+                                "Login",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
                               ),
-                            )),
+                            ),
+                          ),
+                        ),
                         const SizedBox(
                           height: 50,
                         ),
                         const Text("Don't Have an account? "),
                         TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(
-                                context, RegisterPage.nameRoute);
+                            Navigator.pushNamed(context, '/RegisterPage');
                           },
                           child: const Text("Click here",
                               style: TextStyle(color: Colors.blue)),

@@ -11,12 +11,12 @@ import 'equipments.dart';
 import 'similar_recipe.dart';
 import 'ingredients.dart';
 
-class RacipeInfoWidget extends StatefulWidget {
+class RecipeDataWidget extends StatefulWidget {
   final Recipe info;
   final List<Similar> similarlist;
   final List<Equipment> equipment;
 
-  const RacipeInfoWidget({
+  const RecipeDataWidget({
     Key? key,
     required this.info,
     required this.similarlist,
@@ -24,10 +24,10 @@ class RacipeInfoWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<RacipeInfoWidget> createState() => _RacipeInfoWidgetState();
+  State<RecipeDataWidget> createState() => _RecipeDataWidgetState();
 }
 
-class _RacipeInfoWidgetState extends State<RacipeInfoWidget> {
+class _RecipeDataWidgetState extends State<RecipeDataWidget> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -201,27 +201,6 @@ class _RacipeInfoWidgetState extends State<RacipeInfoWidget> {
                   if (widget.equipment.isNotEmpty)
                     EquipmentsListView(
                       equipments: widget.equipment,
-                    ),
-                  if (widget.info.summary != null)
-                    Padding(
-                      padding: const EdgeInsets.all(26.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            "Quick summary",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          Html(
-                            data: widget.info.summary,
-                          ),
-                        ],
-                      ),
                     ),
                   const SizedBox(
                     height: 20,

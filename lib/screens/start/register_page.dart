@@ -1,3 +1,4 @@
+import 'package:cooking_tutorial_application/screens/start/login_page.dart';
 import 'package:flutter/material.dart';
 import '../../animation/animation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -25,9 +26,11 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Future signUp() async {
     if (passwordConfirmed()) {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: _emailController.text.trim(),
-          password: _passwordController.text.trim());
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: _emailController.text.trim(),
+              password: _passwordController.text.trim())
+          .then((value) => Navigator.pushNamed(context, '/LoginPage'));
     }
   }
 
@@ -166,7 +169,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                 color: const Color(0xffed073f)),
                             child: GestureDetector(
                               onTap: () {
-                                signUp();
+                                signUp().onError((error, stackTrace) =>
+                                    print("Error ${error.toString()}"));
                               },
                               child: const Center(
                                 child: Text(

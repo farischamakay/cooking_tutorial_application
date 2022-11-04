@@ -3,20 +3,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import './bloc/recipe_data_bloc.dart';
 import '../recipe_random/widgets/recipe_success_widget.dart';
 
-class RecipeInfo extends StatefulWidget {
+class RecipeData extends StatefulWidget {
   final String id;
-  const RecipeInfo({Key? key, required this.id}) : super(key: key);
+  const RecipeData({Key? key, required this.id}) : super(key: key);
 
   @override
-  State<RecipeInfo> createState() => _RecipeInfoState();
+  State<RecipeData> createState() => _RecipeDataState();
 }
 
-class _RecipeInfoState extends State<RecipeInfo> {
+class _RecipeDataState extends State<RecipeData> {
   late final RecipeDataBloc bloc;
   @override
   void initState() {
     bloc = BlocProvider.of<RecipeDataBloc>(context);
-    bloc.add(LoadRecipeInfo(widget.id));
+    bloc.add(LoadRecipeData(widget.id));
     super.initState();
   }
 
@@ -31,7 +31,7 @@ class _RecipeInfoState extends State<RecipeInfo> {
             if (state is RecipeDataLoadState) {
               return const Center(child: LoadingWidget());
             } else if (state is RecipeDataSuccesState) {
-              return RacipeInfoWidget(
+              return RecipeDataWidget(
                 equipment: state.equipment,
                 info: state.recipe,
                 similarlist: state.similar,
@@ -45,7 +45,7 @@ class _RecipeInfoState extends State<RecipeInfo> {
             } else {
               return Center(
                 child: Container(
-                  child: Text("Noting happingng"),
+                  child: Text("Waiting..."),
                 ),
               );
             }

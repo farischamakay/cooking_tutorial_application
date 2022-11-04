@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:cooking_tutorial_application/screens/models/recipe.dart';
 import 'package:flutter/foundation.dart';
-import '../../../viewmodels/recipe_info.dart';
+import '../../../viewmodels/recipe_data.dart';
 import '../../../screens/models/similar_result.dart';
 import '../../../screens/models/equipment.dart';
 import '../../../screens/models/failure.dart';
@@ -10,14 +10,14 @@ part 'recipe_data_event.dart';
 part 'recipe_data_state.dart';
 
 class RecipeDataBloc extends Bloc<RecipeDataEvent, RecipeDataState> {
-  final GetRecipeInfo repo = GetRecipeInfo();
+  final GetRecipeData repo = GetRecipeData();
 
   RecipeDataBloc() : super(RecipeDataInitial()) {
     on<RecipeDataEvent>((event, emit) async {
-      if (event is LoadRecipeInfo) {
+      if (event is LoadRecipeData) {
         try {
           emit(RecipeDataLoadState());
-          final data = await repo.getRecipeInfo(event.id);
+          final data = await repo.getRecipeData(event.id);
           emit(
             RecipeDataSuccesState(
               recipe: data[0],

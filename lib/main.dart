@@ -1,4 +1,5 @@
 import 'package:cooking_tutorial_application/screens/home/bloc/homepage_recipe_bloc.dart';
+import 'package:cooking_tutorial_application/screens/recipe_random/random_recipe_screen.dart';
 import 'package:cooking_tutorial_application/screens/start/checking_page.dart';
 import 'package:cooking_tutorial_application/screens/start/forgot_password.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
@@ -11,6 +12,8 @@ import 'package:cooking_tutorial_application/screens/start/register_page.dart';
 import 'package:cooking_tutorial_application/screens/start/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'screens/recipe_random/bloc/recipe_random_bloc.dart';
+import 'screens/recipe_random/random_recipe_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +23,10 @@ Future<void> main() async {
   await Hive.openBox('Favorite');
   runApp(MultiBlocProvider(providers: [
     BlocProvider<HomeRecipesBloc>(
-      create: (context) => HomeRecipesBloc(LoadHomepageRecipe()),
+        create: (context) => HomeRecipesBloc(LoadHomepageRecipe())),
+    BlocProvider<RecipeRandomBloc>(
+      create: (context) => RecipeRandomBloc(),
+      child: const RandomRecipe(),
     ),
   ], child: const MyApp()));
 }
@@ -41,10 +47,10 @@ class MyApp extends StatelessWidget {
       routes: {
         Splash.nameRoutes: (context) => const Splash(),
         CheckingPage.nameRoute: (context) => const CheckingPage(),
-        LoginPage.nameRoute: (context) => const LoginPage(),
-        RegisterPage.nameRoute: (context) => const RegisterPage(),
+        '/LoginPage': (BuildContext context) => const LoginPage(),
+        '/RegisterPage': (BuildContext context) => const RegisterPage(),
         ForgotPasswordPage.nameRoute: (context) => const ForgotPasswordPage(),
-        HomePage.nameRoute: (context) => const HomePage(),
+        Homepage.nameRoute: (context) => const Homepage(),
       },
     );
   }

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import '../api/api_key.dart';
-import 'recipe_info.dart';
+import 'recipe_data.dart';
 import '../screens/models/recipe.dart';
 import '../screens/models/equipment.dart';
 import '../screens/models/similar_result.dart';

@@ -53,7 +53,7 @@ class _RecipeCardTypeState extends State<RecipeCardType> {
               MaterialPageRoute(
                 builder: (context) => BlocProvider(
                   create: (context) => RecipeDataBloc(),
-                  child: RecipeInfo(
+                  child: RecipeData(
                     id: widget.items.id,
                   ),
                 ),

@@ -16,17 +16,17 @@ const INFORMATION_PATH = '/information?';
 // ignore: constant_identifier_names
 const SIMILAR_PATH = '/similar?';
 
-class GetRecipeInfo {
+class GetRecipeData {
   // ignore: non_constant_identifier_names
   var key = ApiKey.keys;
 
   final dio = Dio();
 
-  Future<List<dynamic>> getRecipeInfo(String id) async {
+  Future<List<dynamic>> getRecipeData(String id) async {
     var infoUrl = '$BASE_URL$id$INFORMATION_PATH&apiKey=$key';
     var similarUrl = '$BASE_URL$id$SIMILAR_PATH&apiKey=$key';
     var equipmentUrl = '$BASE_URL$id$EQUIPMENTS_PATH&apiKey=$key';
-    Recipe racipeInfo;
+    Recipe recipeData;
     SimilarList similarList;
     EquipmentsList equipmentList;
     final response = await Future.wait([
@@ -35,7 +35,7 @@ class GetRecipeInfo {
       dio.get(equipmentUrl),
     ]);
     if (response[0].statusCode == 200) {
-      racipeInfo = Recipe.fromJson(response[0].data);
+      recipeData = Recipe.fromJson(response[0].data);
     } else if (response[0].statusCode == 401) {
       throw Failure(code: 401, message: response[0].data['message']);
     } else {
@@ -60,7 +60,7 @@ class GetRecipeInfo {
     }
 
     return [
-      racipeInfo,
+      recipeData,
       similarList,
       equipmentList,
     ];

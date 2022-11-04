@@ -30,7 +30,7 @@ class _RandomRecipeState extends State<RandomRecipe> {
             if (state is RecipeRandomLoadState) {
               return const Center(child: LoadingWidget());
             } else if (state is RecipeRandomSuccesState) {
-              return RacipeInfoWidget(
+              return RecipeDataWidget(
                 equipment: state.equipment,
                 info: state.recipe,
                 similarlist: state.similar,
@@ -44,7 +44,7 @@ class _RandomRecipeState extends State<RandomRecipe> {
             } else {
               return Center(
                 child: Container(
-                  child: Text("Noting happingng"),
+                  child: Text("Waiting..."),
                 ),
               );
             }

@@ -29,11 +29,11 @@ class HomeRecipesBloc extends Bloc<HomepageRecipeEvent, HomepageRecipeState> {
             HomepageRecipeSuccess(
               breakfast: data[0].list,
               lunch: data[1].list,
-              rice: data[6].list,
               drinks: data[2].list,
               burgers: data[4].list,
               pizza: data[3].list,
               cake: data[5].list,
+              rice: data[6].list,
             ),
           );
         } on Failure catch (e) {

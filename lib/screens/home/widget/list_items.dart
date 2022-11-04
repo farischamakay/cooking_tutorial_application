@@ -29,7 +29,7 @@ class _Listmealtate extends State<ListItem> {
             MaterialPageRoute(
               builder: (context) => BlocProvider(
                 create: (context) => RecipeDataBloc(),
-                child: RecipeInfo(
+                child: RecipeData(
                   id: widget.meal.id,
                 ),
               ),

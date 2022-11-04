@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import '../api/api_key.dart';
 import '../screens/models/food_type.dart';
-import 'recipe_info.dart';
+import 'recipe_data.dart';
 import '../screens/models/failure.dart';
 
 class GetHomeRecipes {

@@ -1,4 +1,14 @@
+import 'package:cooking_tutorial_application/screens/models/search_result.dart';
+import 'package:cooking_tutorial_application/screens/recipe_search_result/bloc/recipe_search_result_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import '../favorite/favorite_page.dart';
+import '../profile/profile_page.dart';
+import '../recipe_search_result/recipe_search_result.dart';
+import '../search/cubit/search_cubit.dart';
+import '../search/search_page.dart';
+import '../start/login_page.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,15 +21,15 @@ import '../home/widget/list_items.dart';
 import '../recipe_data/bloc/recipe_data_bloc.dart';
 import '../recipe_data/recipe_data_screen.dart';
 
-class HomePage extends StatefulWidget {
+class Homepage extends StatefulWidget {
   static const nameRoute = '/homepage';
-  const HomePage({Key? key}) : super(key: key);
+  const Homepage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Homepage> createState() => _HomepageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomepageState extends State<Homepage> {
   late final HomeRecipesBloc bloc;
   @override
   void initState() {
@@ -40,8 +50,8 @@ class _HomePageState extends State<HomePage> {
     //       context,
     //       MaterialPageRoute(
     //         builder: (context) => BlocProvider(
-    //           create: (context) => RecipeInfoBloc(),
-    //           child: RecipeInfo(
+    //           create: (context) => RecipeDataBloc(),
+    //           child: RecipeData(
     //             id: deepLink.queryParameters['id']!,
     //           ),
     //         ),
@@ -63,7 +73,7 @@ class _HomePageState extends State<HomePage> {
         MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => RecipeDataBloc(),
-            child: RecipeInfo(
+            child: RecipeData(
               id: deepLink.queryParameters['id']!,
             ),
           ),
@@ -72,7 +82,6 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  final user = FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -82,13 +91,12 @@ class _HomePageState extends State<HomePage> {
           elevation: 0,
           backgroundColor: Colors.white,
           title: const Text(
-            'Cooking Tutorial',
+            "DelyCook",
             style: TextStyle(
-                fontFamily: 'Thelma',
+                fontFamily: 'thelma',
                 fontWeight: FontWeight.bold,
-                fontStyle: FontStyle.italic,
-                fontSize: 40,
-                color: Colors.red),
+                color: Colors.red,
+                fontSize: 40),
           ),
         ),
         backgroundColor: Colors.white,
@@ -115,7 +123,7 @@ class _HomePageState extends State<HomePage> {
             } else {
               return Center(
                 child: Container(
-                  child: Text("Nothing"),
+                  child: Text("Waiting..."),
                 ),
               );
             }
@@ -135,8 +143,7 @@ class HomeScreenWidget extends StatefulWidget {
   final List<FoodType> cake;
   final List<FoodType> rice;
 
-  const HomeScreenWidget({
-    super.key,
+  HomeScreenWidget({
     required this.breakfast,
     required this.lunch,
     required this.drinks,
@@ -165,7 +172,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
             child: DelayedDisplay(
               delay: Duration(microseconds: 600),
               child: Text(
-                "Hello, Welcome to our \nTasty food tutorial",
+                "Simple Way to find \nTasty food",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 26,
@@ -181,7 +188,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
             child: TextField(
               onSubmitted: (value) {},
               decoration: InputDecoration(
-                hintText: "Search Recipes",
+                hintText: "Search Recipes..",
                 suffixIcon:
                     IconButton(icon: Icon(Icons.search), onPressed: () {}),
                 contentPadding:
@@ -291,16 +298,16 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
           ),
           IconButton(
               onPressed: () {
-                // Navigator.of(context).push(
-                //   MaterialPageRoute(
-                //     builder: (context) => BlocProvider(
-                //       create: (context) => SearchResultsBloc(),
-                //       child: SearchResults(
-                //         id: title,
-                //       ),
-                //     ),
-                //   ),
-                // );
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => BlocProvider(
+                      create: (context) => RecipeSearchResultBloc(),
+                      child: SearchResults(
+                        id: title,
+                      ),
+                    ),
+                  ),
+                );
               },
               icon: Icon(Icons.arrow_forward_sharp))
         ],
