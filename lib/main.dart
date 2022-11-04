@@ -1,5 +1,7 @@
 import 'package:cooking_tutorial_application/screens/home/bloc/homepage_recipe_bloc.dart';
+import 'package:cooking_tutorial_application/screens/recipe_data/bloc/recipe_data_bloc.dart';
 import 'package:cooking_tutorial_application/screens/recipe_random/random_recipe_screen.dart';
+import 'package:cooking_tutorial_application/screens/recipe_search_result/bloc/recipe_search_result_bloc.dart';
 import 'package:cooking_tutorial_application/screens/start/checking_page.dart';
 import 'package:cooking_tutorial_application/screens/start/forgot_password.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
@@ -28,6 +30,12 @@ Future<void> main() async {
       create: (context) => RecipeRandomBloc(),
       child: const RandomRecipe(),
     ),
+    BlocProvider(
+      create: (context) => RecipeDataBloc(),
+    ),
+    BlocProvider(
+      create: (context) => RecipeSearchResultBloc(),
+    ),
   ], child: const MyApp()));
 }
 
@@ -40,8 +48,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Cooking Tutorial Apps',
       theme: ThemeData(
-          textTheme:
-              const TextTheme(headline1: TextStyle(fontFamily: 'Thelma'))),
+        fontFamily: 'Satoshi',
+        primarySwatch: Colors.blue,
+        primaryColor: Colors.redAccent,
+        textTheme: const TextTheme(
+          headline1: TextStyle(
+            fontFamily: 'Telma',
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       initialRoute: Splash.nameRoutes,
       debugShowCheckedModeBanner: false,
       routes: {
