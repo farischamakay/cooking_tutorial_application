@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import '../../models/failure.dart';
 import '../../models/search_result.dart';
-import '../../../viewmodels/get_recipe_result.dart';
+import '../../../repository/get_recipe_result.dart';
 
 part 'recipe_search_result_event.dart';
 part 'recipe_search_result_state.dart';

@@ -1,16 +1,7 @@
-import 'package:cooking_tutorial_application/screens/models/search_result.dart';
 import 'package:cooking_tutorial_application/screens/recipe_search_result/bloc/recipe_search_result_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import '../favorite/favorite_page.dart';
-import '../profile/profile_page.dart';
 import '../recipe_search_result/recipe_search_result.dart';
-import '../search/cubit/search_cubit.dart';
-import '../search/search_page.dart';
-import '../start/login_page.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../animation/animation.dart';
 import '../models/food_type.dart';
@@ -35,52 +26,52 @@ class _HomepageState extends State<Homepage> {
   void initState() {
     bloc = BlocProvider.of<HomeRecipesBloc>(context);
     bloc.add(LoadHomepageRecipe());
-    initDynamicLinks(context);
+    //initDynamicLinks(context);
 
     super.initState();
   }
 
-  initDynamicLinks(BuildContext context) async {
-    // FirebaseDynamicLinks.instance.onLink(
-    //     onSuccess: (PendingDynamicLinkData? dynamicLink) async {
-    //   final Uri? deepLink = dynamicLink?.link;
+  // initDynamicLinks(BuildContext context) async {
+  //   // FirebaseDynamicLinks.instance.onLink(
+  //   //     onSuccess: (PendingDynamicLinkData? dynamicLink) async {
+  //   //   final Uri? deepLink = dynamicLink?.link;
 
-    //   if (deepLink != null) {
-    //     Navigator.push(
-    //       context,
-    //       MaterialPageRoute(
-    //         builder: (context) => BlocProvider(
-    //           create: (context) => RecipeDataBloc(),
-    //           child: RecipeData(
-    //             id: deepLink.queryParameters['id']!,
-    //           ),
-    //         ),
-    //       ),
-    //     );
-    //   }
-    // }, onError: (OnLinkErrorException e) async {
-    //   print('onLinkError');
-    //   print(e.message);
-    // });
+  //   //   if (deepLink != null) {
+  //   //     Navigator.push(
+  //   //       context,
+  //   //       MaterialPageRoute(
+  //   //         builder: (context) => BlocProvider(
+  //   //           create: (context) => RecipeDataBloc(),
+  //   //           child: RecipeData(
+  //   //             id: deepLink.queryParameters['id']!,
+  //   //           ),
+  //   //         ),
+  //   //       ),
+  //   //     );
+  //   //   }
+  //   // }, onError: (OnLinkErrorException e) async {
+  //   //   print('onLinkError');
+  //   //   print(e.message);
+  //   // });
 
-    final PendingDynamicLinkData? data =
-        await FirebaseDynamicLinks.instance.getInitialLink();
-    final Uri? deepLink = data?.link;
+  //   final PendingDynamicLinkData? data =
+  //       await FirebaseDynamicLinks.instance.getInitialLink();
+  //   final Uri? deepLink = data?.link;
 
-    if (deepLink != null) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) => RecipeDataBloc(),
-            child: RecipeData(
-              id: deepLink.queryParameters['id']!,
-            ),
-          ),
-        ),
-      );
-    }
-  }
+  //   if (deepLink != null) {
+  //     Navigator.push(
+  //       context,
+  //       MaterialPageRoute(
+  //         builder: (context) => BlocProvider(
+  //           create: (context) => RecipeDataBloc(),
+  //           child: RecipeData(
+  //             id: deepLink.queryParameters['id']!,
+  //           ),
+  //         ),
+  //       ),
+  //     );
+
+//}
 
   @override
   Widget build(BuildContext context) {
@@ -117,13 +108,13 @@ class _HomepageState extends State<Homepage> {
             } else if (state is HomepageRecipeError) {
               return Center(
                 child: Container(
-                  child: Text("Error"),
+                  child: const Text("Error"),
                 ),
               );
             } else {
               return Center(
                 child: Container(
-                  child: Text("Waiting..."),
+                  child: const Text("Waiting..."),
                 ),
               );
             }
@@ -143,7 +134,8 @@ class HomeScreenWidget extends StatefulWidget {
   final List<FoodType> cake;
   final List<FoodType> rice;
 
-  HomeScreenWidget({
+  const HomeScreenWidget({
+    super.key,
     required this.breakfast,
     required this.lunch,
     required this.drinks,
@@ -183,35 +175,6 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
           const SizedBox(height: 20),
           const HorizontalList(),
           const SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.all(26.0),
-            child: TextField(
-              onSubmitted: (value) {},
-              decoration: InputDecoration(
-                hintText: "Search Recipes..",
-                suffixIcon:
-                    IconButton(icon: Icon(Icons.search), onPressed: () {}),
-                contentPadding:
-                    const EdgeInsets.symmetric(vertical: 4, horizontal: 20),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    width: 2,
-                    style: BorderStyle.solid,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    width: 1,
-                    style: BorderStyle.solid,
-                    color: Colors.black.withOpacity(.5),
-                  ),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-              ),
-            ),
-          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 26.0),
             child: header("Popular Breakfast Recipes", "breakfast"),

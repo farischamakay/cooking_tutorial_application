@@ -1,9 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:cooking_tutorial_application/screens/models/recipe.dart';
 import 'package:flutter/foundation.dart';
-import '../../../viewmodels/recipe_data.dart';
+import '../../../repository/recipe_data.dart';
 import '../../../screens/models/similar_result.dart';
 import '../../../screens/models/equipment.dart';
+import '../../../screens/models/nutrients.dart';
 import '../../../screens/models/failure.dart';
 
 part 'recipe_data_event.dart';
@@ -23,6 +24,7 @@ class RecipeDataBloc extends Bloc<RecipeDataEvent, RecipeDataState> {
               recipe: data[0],
               similar: data[1].list,
               equipment: data[2].items,
+              // nutrient: data[3]
             ),
           );
         } on Failure catch (e) {

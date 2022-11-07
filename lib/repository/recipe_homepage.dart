@@ -6,7 +6,6 @@ import '../screens/models/failure.dart';
 
 class GetHomeRecipes {
   var key = ApiKey.keys;
-  // ignore: non_constant_identifier_names
 
   final dio = Dio();
 

@@ -4,8 +4,6 @@ import 'package:cooking_tutorial_application/screens/navigator/bottom_navigator.
 import 'package:cooking_tutorial_application/screens/start/forgot_password.dart';
 import 'package:cooking_tutorial_application/screens/start/register_page.dart';
 import 'package:flutter/material.dart';
-import 'authentication/auth.dart';
-import 'authentication/auth_error.dart';
 import '../../animation/animation.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -160,17 +158,8 @@ class _LoginPageState extends State<LoginPage> {
                                 ],
                               ),
                             )),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 15),
-                          child: authErrorlogin != ''
-                              ? Text(
-                                  textAlign: TextAlign.center,
-                                  authErrorlogin.split(']')[1],
-                                  style: const TextStyle(
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.bold),
-                                )
-                              : null,
+                        const SizedBox(
+                          height: 20,
                         ),
                         Container(
                           height: 50,

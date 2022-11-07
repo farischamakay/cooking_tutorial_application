@@ -60,7 +60,7 @@ class FavoriteScreen extends StatelessWidget {
                         image: data.image!,
                         name: data.title!,
                         readyInMinutes: data.readyInMinutes.toString(),
-                        servings: data.servings.toString(),
+                        // servings: data.servings.toString(),
                       ),
                     );
                   },

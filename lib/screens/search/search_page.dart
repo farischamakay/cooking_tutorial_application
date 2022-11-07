@@ -3,7 +3,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../animation/animation.dart';
 import '../models/auto_complete.dart';
-import '../home/widget/horizontal_list.dart';
 import '../recipe_data/bloc/recipe_data_bloc.dart';
 import '../recipe_data/recipe_data_screen.dart';
 import '../search/cubit/search_cubit.dart';
@@ -88,40 +87,8 @@ class SearchPage extends StatelessWidget {
                       : ListView(
                           physics: const BouncingScrollPhysics(
                               parent: AlwaysScrollableScrollPhysics()),
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 25.0, vertical: 20),
-                              child: Text(
-                                "Most Recent Searches by People",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                ),
-                              ),
-                            ),
+                          children: const [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Wrap(
-                                alignment: WrapAlignment.start,
-                                children: const [
-                                  ChipWidget("Baking"),
-                                  ChipWidget("Vegetarian"),
-                                  ChipWidget("Sauces"),
-                                  ChipWidget("Meat"),
-                                  ChipWidget("Turkey"),
-                                  ChipWidget("Chicken"),
-                                  ChipWidget("Sausages"),
-                                  ChipWidget("Mince"),
-                                  ChipWidget("Burgers"),
-                                  ChipWidget("Pasta"),
-                                  ChipWidget("Noodles"),
-                                  ChipWidget("Pizza"),
-                                  ChipWidget("Soups"),
-                                ],
-                              ),
-                            ),
-                            const Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 25.0, vertical: 10),
                               child: Text(
@@ -132,68 +99,68 @@ class SearchPage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const CategoryTile(
+                            CategoryTile(
                                 text: "main course",
                                 image:
                                     "https://images.unsplash.com/photo-1559847844-5315695dadae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=740&q=80"),
-                            const CategoryTile(
+                            CategoryTile(
                                 text: "side dish",
                                 image:
                                     "https://images.unsplash.com/photo-1534938665420-4193effeacc4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80"),
-                            const CategoryTile(
+                            CategoryTile(
                                 text: "dessert",
                                 image:
                                     "https://images.unsplash.com/photo-1587314168485-3236d6710814?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=670&q=80"),
-                            const CategoryTile(
+                            CategoryTile(
                                 text: "appetizer",
                                 image:
                                     "https://images.unsplash.com/photo-1541529086526-db283c563270?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"),
-                            const CategoryTile(
+                            CategoryTile(
                               text: "salad",
                               image:
                                   "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
                             ),
-                            const CategoryTile(
+                            CategoryTile(
                               text: "bread",
                               image:
                                   "https://images.unsplash.com/photo-1509440159596-0249088772ff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=752&q=80",
                             ),
-                            const CategoryTile(
+                            CategoryTile(
                               text: "breakfast",
                               image:
                                   "https://images.unsplash.com/photo-1525351484163-7529414344d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
                             ),
-                            const CategoryTile(
+                            CategoryTile(
                               text: "soup",
                               image:
                                   "https://images.unsplash.com/photo-1547592166-23ac45744acd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80",
                             ),
-                            const CategoryTile(
+                            CategoryTile(
                               text: "beverage",
                               image:
                                   "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
                             ),
-                            const CategoryTile(
+                            CategoryTile(
                               text: "sauce",
                               image:
                                   "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
                             ),
-                            const CategoryTile(
+                            CategoryTile(
                               text: "marinade",
                               image:
                                   "https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
                             ),
-                            const CategoryTile(
+                            CategoryTile(
                               text: "fingerfood",
                               image:
                                   "https://images.unsplash.com/photo-1605333396915-47ed6b68a00e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
                             ),
-                            const CategoryTile(
+                            CategoryTile(
                               text: "snack",
                               image:
                                   "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
                             ),
-                            const CategoryTile(
+                            CategoryTile(
                               text: "drink",
                               image:
                                   "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",

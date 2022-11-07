@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../animation/animation.dart';
-//import '';
+import '../../recipe_search_result/bloc/recipe_search_result_bloc.dart';
+import '../../recipe_search_result/recipe_search_result.dart';
 
 class HorizontalList extends StatelessWidget {
   const HorizontalList({
@@ -61,16 +62,16 @@ class ChipWidget extends StatelessWidget {
         delay: const Duration(microseconds: 600),
         child: InkWell(
           onTap: () {
-            // Navigator.of(context).push(
-            //   MaterialPageRoute(
-            //     builder: (context) => BlocProvider(
-            //       create: (context) => SearchResultsBloc(),
-            //       child: SearchResults(
-            //         id: text,
-            //       ),
-            //     ),
-            //   ),
-            // );
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => BlocProvider(
+                  create: (context) => RecipeSearchResultBloc(),
+                  child: SearchResults(
+                    id: text,
+                  ),
+                ),
+              ),
+            );
           },
           child: Container(
             decoration: BoxDecoration(

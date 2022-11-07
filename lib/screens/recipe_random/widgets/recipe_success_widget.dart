@@ -1,3 +1,4 @@
+import 'package:cooking_tutorial_application/screens/models/nutrients.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
@@ -5,6 +6,7 @@ import '../../../animation/animation.dart';
 import '../../models/equipment.dart';
 import '../../models/similar_result.dart';
 import '../../models/recipe.dart';
+import '../../models/nutrients.dart';
 
 import 'appBar.dart';
 import 'equipments.dart';
@@ -104,41 +106,11 @@ class _RecipeDataWidgetState extends State<RecipeDataWidget> {
                               width: 2,
                               color: Theme.of(context).primaryColor,
                             ),
-                            Flexible(
-                              flex: 1,
-                              child: Column(
-                                children: [
-                                  Text(widget.info.servings.toString(),
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20)),
-                                  Text(
-                                    "Servings",
-                                    style:
-                                        TextStyle(color: Colors.grey.shade600),
-                                  )
-                                ],
-                              ),
-                            ),
                             Container(
                               height: 30,
                               width: 2,
                               color: Theme.of(context).primaryColor,
                             ),
-                            Flexible(
-                              flex: 1,
-                              child: Column(
-                                children: [
-                                  Text(widget.info.pricePerServing.toString(),
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20)),
-                                  Text("Price/Servings",
-                                      style: TextStyle(
-                                          color: Colors.grey.shade600))
-                                ],
-                              ),
-                            )
                           ],
                         ),
                       ),

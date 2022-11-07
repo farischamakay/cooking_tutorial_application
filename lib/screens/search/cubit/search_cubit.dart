@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import '../../models/auto_complete.dart';
-import '../../../viewmodels/get_recipe_result.dart';
+import '../../../repository/get_recipe_result.dart';
 
 part 'search_state.dart';
 

@@ -35,11 +35,12 @@ class _RecipeDataState extends State<RecipeData> {
                 equipment: state.equipment,
                 info: state.recipe,
                 similarlist: state.similar,
+                // nutrient: state.nutrient,
               );
             } else if (state is RecipeDataErrorState) {
               return Center(
                 child: Container(
-                  child: Text("Error"),
+                  child: Text("Error data"),
                 ),
               );
             } else {

@@ -11,10 +11,12 @@ class RecipeRandomSuccesState extends RecipeRandomState {
   final Recipe recipe;
   final List<Similar> similar;
   final List<Equipment> equipment;
+  // final Nutrient nutrient;
 
   RecipeRandomSuccesState({
     required this.recipe,
     required this.similar,
+    // required this.nutrient,
     required this.equipment,
   });
 }

@@ -78,9 +78,9 @@ class MySliverAppBar extends SliverPersistentHeaderDelegate {
                         ),
                         child: Row(
                           children: [
-                            Text(
-                              "${info.spoonacularScore}",
-                            ),
+                            // Text(
+                            //   "${info.spoonacularScore}",
+                            // ),
                             const SizedBox(width: 10),
                             Icon(
                               Icons.star_outlined,
@@ -188,21 +188,21 @@ class _AppBarWidgetState extends State<AppBarWidget> {
           ),
         ),
       ),
-      actions: [
-        IconButton(
-          onPressed: () async {
-            //final url = await data();
-            // Share.share(
-            //   'check out This tasty recipe $url',
-            // );
-          },
-          icon: const Icon(CupertinoIcons.share, color: Colors.black),
-        )
-      ],
+      // actions: [
+      //   IconButton(
+      //     onPressed: () async {
+      //       //final url = await data();
+      //       // Share.share(
+      //       //   'check out This tasty recipe $url',
+      //       // );
+      //     },
+      //     icon: const Icon(CupertinoIcons.share, color: Colors.black),
+      //   )
+      // ],
       title: Opacity(
         opacity: (0 + widget.shrinkOffset / widget.expandedHeight),
         child: Text(
-          "Spoonacular",
+          "Delycook",
           style: Theme.of(context).textTheme.headline1,
         ),
       ),

@@ -1,3 +1,0 @@
-String authErrorRegister = '';
-
-String authErrorlogin = '';

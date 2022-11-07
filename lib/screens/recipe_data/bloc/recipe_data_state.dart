@@ -11,11 +11,13 @@ class RecipeDataSuccesState extends RecipeDataState {
   final Recipe recipe;
   final List<Similar> similar;
   final List<Equipment> equipment;
+  // final Nutrient nutrient;
 
   RecipeDataSuccesState({
     required this.recipe,
     required this.similar,
     required this.equipment,
+    // required this.nutrient,
   });
 }
 

@@ -19,14 +19,14 @@ class GetRandomRecipe {
     var infoUrl = '$BASE_URL$RANDOM_RACIPE_PATH&apiKey=$key';
     var id = '';
 
-    Recipe racipeInfo;
+    Recipe recipeInfo;
     SimilarList similarList;
     EquipmentsList equipmentList;
 
     final res = await dio.get(infoUrl);
 
     if (res.statusCode == 200) {
-      racipeInfo = Recipe.fromJson(res.data['recipes'][0]);
+      recipeInfo = Recipe.fromJson(res.data['recipes'][0]);
       id = res.data['recipes'][0]['id'].toString();
     } else if (res.statusCode == 401) {
       throw Failure(code: 401, message: res.data['message']);
@@ -62,7 +62,7 @@ class GetRandomRecipe {
     }
 
     return [
-      racipeInfo,
+      recipeInfo,
       similarList,
       equipmentList,
     ];

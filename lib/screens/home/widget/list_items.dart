@@ -107,7 +107,7 @@ class _Listmealtate extends State<ListItem> {
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          "Ready in " + widget.meal.readyInMinutes + " Min",
+                          "Ready in ${widget.meal.readyInMinutes} Min",
                           style: TextStyle(
                               color: Theme.of(context).primaryColor,
                               fontSize: 14,

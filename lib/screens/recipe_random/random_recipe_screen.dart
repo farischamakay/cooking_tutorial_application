@@ -38,7 +38,7 @@ class _RandomRecipeState extends State<RandomRecipe> {
             } else if (state is RecipeRandomErrorState) {
               return Center(
                 child: Container(
-                  child: Text("Error"),
+                  child: Text("Error random"),
                 ),
               );
             } else {
