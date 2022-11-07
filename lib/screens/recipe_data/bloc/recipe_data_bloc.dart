@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import '../../../repository/recipe_data.dart';
 import '../../../screens/models/similar_result.dart';
 import '../../../screens/models/equipment.dart';
-import '../../../screens/models/nutrients.dart';
 import '../../../screens/models/failure.dart';
 
 part 'recipe_data_event.dart';

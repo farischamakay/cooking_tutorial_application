@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../models/similar_result.dart';
@@ -113,7 +112,7 @@ class _RecipeCardWidgetState extends State<RecipeCardWidget> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 child: Text(
-                  "Ready in " + widget.items.readyInMinutes + " Min",
+                  "Ready in ${widget.items.readyInMinutes} Min",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).primaryColor,

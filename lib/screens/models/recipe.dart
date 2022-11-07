@@ -1,5 +1,5 @@
+import 'package:cooking_tutorial_application/screens/models/tambahan_bahan.dart';
 import 'analyzed_instuction.dart';
-import 'tambahan_bahan.dart';
 
 class Recipe {
   bool? vegetarian;
@@ -19,11 +19,12 @@ class Recipe {
   String? creditsText;
   String? license;
   String? sourceName;
+  double? pricePerServing;
   List<TambahanBahan>? extendedIngredients;
   int? id;
   String? title;
   int? readyInMinutes;
-  //int? servings;
+  int? servings;
   String? sourceUrl;
   String? image;
   String? imageType;
@@ -55,11 +56,12 @@ class Recipe {
     this.creditsText,
     this.license,
     this.sourceName,
+    this.pricePerServing,
     this.extendedIngredients,
     this.id,
     this.title,
     this.readyInMinutes,
-    // this.servings,
+    this.servings,
     this.sourceUrl,
     this.image,
     this.imageType,
@@ -86,19 +88,18 @@ class Recipe {
         weightWatcherSmartPoints: json['weightWatcherSmartPoints'] as int?,
         gaps: json['gaps'] as String?,
         lowFodmap: json['lowFodmap'] as bool?,
-        //aggregateLikes: json['aggregateLikes'] as int?,
-        //spoonacularScore: json['spoonacularScore'] as double?,
-        //healthScore: json['healthScore'] as double?,
-        //creditsText: json['creditsText'] as String?,
+        aggregateLikes: json['aggregateLikes'] as int?,
+        spoonacularScore: json['spoonacularScore'] as double?,
         license: json['license'] as String?,
         sourceName: json['sourceName'] as String?,
+        pricePerServing: (json['pricePerServing'] as num?)?.toDouble(),
         extendedIngredients: (json['extendedIngredients'] as List<dynamic>?)
             ?.map((e) => TambahanBahan.fromJson(e))
             .toList(),
         id: json['id'] as int?,
         title: json['title'] as String?,
         readyInMinutes: json['readyInMinutes'] as int?,
-        //servings: json['servings'] as int?,
+        servings: json['servings'] as int?,
         sourceUrl: json['sourceUrl'] as String?,
         image: json['image'] as String?,
         imageType: json['imageType'] as String?,
@@ -133,12 +134,13 @@ class Recipe {
         'creditsText': creditsText,
         'license': license,
         'sourceName': sourceName,
+        'pricePerServing': pricePerServing,
         'extendedIngredients':
             extendedIngredients?.map((e) => e.toJson()).toList(),
         'id': id,
         'title': title,
         'readyInMinutes': readyInMinutes,
-        // 'servings': servings,
+        'servings': servings,
         'sourceUrl': sourceUrl,
         'image': image,
         'imageType': imageType,

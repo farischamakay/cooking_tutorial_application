@@ -10,7 +10,8 @@ class GetHomeRecipes {
   final dio = Dio();
 
   Future<FoodTypeList> getRecipes(String type, int no) async {
-    var url = BASE_URL + "/random?number=$no&tags=$type" + '&apiKey=' + key;
+    var RANDOM_RECIPE_PATH = '/random?number=$no&tags=$type';
+    var url = '$BASE_URL$RANDOM_RECIPE_PATH&apiKey=$key';
     final response = await dio.get(url);
 
     if (response.statusCode == 200) {

@@ -5,7 +5,6 @@ import 'package:meta/meta.dart';
 import '../../models/recipe.dart';
 import '../../models/equipment.dart';
 import '../../models/similar_result.dart';
-import '../../models/nutrients.dart';
 import '../../models/failure.dart';
 
 part 'recipe_random_event.dart';
@@ -25,7 +24,6 @@ class RecipeRandomBloc extends Bloc<RecipeRandomEvent, RecipeRandomState> {
               recipe: data[0],
               similar: data[1].list,
               equipment: data[2].items,
-              // nutrient: data[3],
             ),
           );
         } on Failure catch (e) {

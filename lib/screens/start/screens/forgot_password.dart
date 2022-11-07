@@ -47,7 +47,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Forgot Password'),
-        backgroundColor: Colors.red,
+        backgroundColor: Color(0xfff1bb274),
       ),
       backgroundColor: const Color(0xffecebf3),
       body: Column(
@@ -64,11 +64,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
               controller: _emailController,
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.redAccent),
+                  borderSide: const BorderSide(color: Color(0xfff1bb274)),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.redAccent),
+                    borderSide: const BorderSide(color: Color(0xfff1bb274)),
                     borderRadius: BorderRadius.circular(12)),
                 hintText: 'Email',
                 fillColor: Colors.white,
@@ -80,7 +80,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             onPressed: () {
               passwordReset();
             },
-            color: Colors.redAccent,
+            color: Color(0xfff1bb274),
             child: const Text('Reset Password'),
           )
         ],

@@ -13,12 +13,11 @@ class FavoriteScreen extends StatelessWidget {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: Scaffold(
-        backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xfff1bb274),
           title: Text(
-            "DelyCook",
+            "EasyCook",
             style: Theme.of(context).textTheme.headline1,
           ),
         ),
@@ -29,8 +28,8 @@ class FavoriteScreen extends StatelessWidget {
                 return Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
-                      Icon(
+                    children: [
+                      const Icon(
                         CupertinoIcons.heart_fill,
                         size: 105,
                         color: Colors.grey,
@@ -40,9 +39,7 @@ class FavoriteScreen extends StatelessWidget {
                         child: Text(
                           "You don't have any Favorite recipe yet.",
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
+                          style: Theme.of(context).textTheme.headline1,
                         ),
                       ),
                     ],
@@ -60,7 +57,6 @@ class FavoriteScreen extends StatelessWidget {
                         image: data.image!,
                         name: data.title!,
                         readyInMinutes: data.readyInMinutes.toString(),
-                        // servings: data.servings.toString(),
                       ),
                     );
                   },

@@ -3,19 +3,16 @@ import 'package:cooking_tutorial_application/screens/recipe_data/bloc/recipe_dat
 import 'package:cooking_tutorial_application/screens/recipe_random/random_recipe_screen.dart';
 import 'package:cooking_tutorial_application/screens/recipe_search_result/bloc/recipe_search_result_bloc.dart';
 import 'package:cooking_tutorial_application/screens/start/checking_page.dart';
-import 'package:cooking_tutorial_application/screens/start/forgot_password.dart';
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+import 'package:cooking_tutorial_application/screens/start/screens/forgot_password.dart';
+import 'package:cooking_tutorial_application/screens/start/screens/screens.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:cooking_tutorial_application/screens/home/homepage.dart';
-import 'package:cooking_tutorial_application/screens/start/login_page.dart';
-import 'package:cooking_tutorial_application/screens/start/register_page.dart';
 import 'package:cooking_tutorial_application/screens/start/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'screens/recipe_random/bloc/recipe_random_bloc.dart';
-import 'screens/recipe_random/random_recipe_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,10 +50,10 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.redAccent,
         textTheme: const TextTheme(
           headline1: TextStyle(
-            fontFamily: 'Telma',
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
+              fontFamily: 'Satisfy',
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.white),
         ),
       ),
       initialRoute: Splash.nameRoutes,
@@ -64,8 +61,8 @@ class MyApp extends StatelessWidget {
       routes: {
         Splash.nameRoutes: (context) => const Splash(),
         CheckingPage.nameRoute: (context) => const CheckingPage(),
-        '/LoginPage': (BuildContext context) => const LoginPage(),
-        '/RegisterPage': (BuildContext context) => const RegisterPage(),
+        '/LoginPage': (BuildContext context) => const LoginScreen(),
+        '/RegisterPage': (BuildContext context) => const SignUpScreen(),
         ForgotPasswordPage.nameRoute: (context) => const ForgotPasswordPage(),
         Homepage.nameRoute: (context) => const Homepage(),
       },

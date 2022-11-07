@@ -80,14 +80,10 @@ class _HomepageState extends State<Homepage> {
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.white,
-          title: const Text(
-            "DelyCook",
-            style: TextStyle(
-                fontFamily: 'thelma',
-                fontWeight: FontWeight.bold,
-                color: Colors.red,
-                fontSize: 40),
+          backgroundColor: Color(0xfff1bb274),
+          title: Text(
+            "EasyCook",
+            style: Theme.of(context).textTheme.headline1,
           ),
         ),
         backgroundColor: Colors.white,
