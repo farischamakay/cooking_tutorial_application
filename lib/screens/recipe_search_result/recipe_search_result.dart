@@ -34,7 +34,7 @@ class _SearchResultsState extends State<SearchResults> {
           iconTheme: const IconThemeData(color: Colors.black),
           backgroundColor: Colors.white,
           title: const Text(
-            "DelyCook",
+            "EasyCook",
             style: TextStyle(
                 fontFamily: 'thelma',
                 fontWeight: FontWeight.bold,
@@ -74,7 +74,7 @@ class _SearchResultsState extends State<SearchResults> {
             } else {
               return Center(
                 child: Container(
-                  child: Text("Noting happingng"),
+                  child: const Text("Nothing"),
                 ),
               );
             }

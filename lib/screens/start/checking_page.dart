@@ -1,9 +1,7 @@
-import 'package:cooking_tutorial_application/screens/home/homepage.dart';
 import 'package:cooking_tutorial_application/screens/navigator/bottom_navigator.dart';
 import 'package:cooking_tutorial_application/screens/start/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CheckingPage extends StatelessWidget {
   static const nameRoute = '/check';
@@ -14,9 +12,9 @@ class CheckingPage extends StatelessWidget {
     return StreamBuilder<User?>(
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return BottomNavigatorView();
+          return const BottomNavigatorView();
         } else {
-          return LoginScreen();
+          return const LoginScreen();
         }
       },
     );

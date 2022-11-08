@@ -1,5 +1,3 @@
-import 'package:cooking_tutorial_application/screens/home/homepage.dart';
-import 'package:cooking_tutorial_application/screens/navigator/bottom_navigator.dart';
 import 'package:cooking_tutorial_application/screens/start/checking_page.dart';
 import 'package:cooking_tutorial_application/screens/start/screens/screens.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +18,7 @@ class _SplashState extends State<Splash> {
 
     Future.delayed(const Duration(seconds: 5)).then((value) => {
           Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const LoginScreen()))
+              MaterialPageRoute(builder: (context) => const CheckingPage()))
         });
   }
 

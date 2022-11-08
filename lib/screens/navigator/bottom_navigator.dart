@@ -61,7 +61,7 @@ class _BottomNavigatorViewState extends State<BottomNavigatorView> {
       ),
       PersistentBottomNavBarItem(
         inactiveColorPrimary: Colors.grey.shade600,
-        icon: Icon(
+        icon: const Icon(
           Icons.person,
         ),
         iconSize: 20,

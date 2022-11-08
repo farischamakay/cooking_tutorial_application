@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'favoriteButton.dart';
 import '../../models/recipe.dart';
@@ -66,29 +65,29 @@ class MySliverAppBar extends SliverPersistentHeaderDelegate {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 20,
-                        ),
-                        decoration: BoxDecoration(
-                          boxShadow: kElevationToShadow[1],
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Row(
-                          children: [
-                            Text(
-                              "${info.spoonacularScore}",
-                            ),
-                            const SizedBox(width: 10),
-                            Icon(
-                              Icons.star_outlined,
-                              color: Theme.of(context).primaryColor,
-                            )
-                          ],
-                        ),
-                      ),
+                      // Container(
+                      //   padding: const EdgeInsets.symmetric(
+                      //     vertical: 10,
+                      //     horizontal: 20,
+                      //   ),
+                      //   decoration: BoxDecoration(
+                      //     boxShadow: kElevationToShadow[1],
+                      //     color: Colors.white,
+                      //     borderRadius: BorderRadius.circular(20),
+                      //   ),
+                      //   child: Row(
+                      //     children: [
+                      //       Text(
+                      //         "${info.spoonacularScore}",
+                      //       ),
+                      //       const SizedBox(width: 10),
+                      //       Icon(
+                      //         Icons.star_outlined,
+                      //         color: Theme.of(context).primaryColor,
+                      //       )
+                      //     ],
+                      //   ),
+                      // ),
                       FavoriteButton(info: info)
                     ],
                   ),
