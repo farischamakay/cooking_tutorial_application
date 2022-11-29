@@ -40,13 +40,13 @@ class _RecipeDataState extends State<RecipeData> {
             } else if (state is RecipeDataErrorState) {
               return Center(
                 child: Container(
-                  child: Text("Error data"),
+                  child: const Text("Error data"),
                 ),
               );
             } else {
               return Center(
                 child: Container(
-                  child: Text("Waiting..."),
+                  child: const Text("Waiting..."),
                 ),
               );
             }

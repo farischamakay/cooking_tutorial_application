@@ -1,7 +1,6 @@
 import 'package:cooking_tutorial_application/screens/recipe_search_result/bloc/recipe_search_result_bloc.dart';
 import 'package:flutter/material.dart';
 import '../recipe_search_result/recipe_search_result.dart';
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../animation/animation.dart';
 import '../models/food_type.dart';
@@ -9,8 +8,6 @@ import '../home/bloc/homepage_recipe_bloc.dart';
 import '../home/widget/food_category_list.dart';
 import '../home/widget/horizontal_list.dart';
 import '../home/widget/list_items.dart';
-import '../recipe_data/bloc/recipe_data_bloc.dart';
-import '../recipe_data/recipe_data_screen.dart';
 
 class Homepage extends StatefulWidget {
   static const nameRoute = '/homepage';
@@ -26,52 +23,9 @@ class _HomepageState extends State<Homepage> {
   void initState() {
     bloc = BlocProvider.of<HomeRecipesBloc>(context);
     bloc.add(LoadHomepageRecipe());
-    //initDynamicLinks(context);
 
     super.initState();
   }
-
-  // initDynamicLinks(BuildContext context) async {
-  //   // FirebaseDynamicLinks.instance.onLink(
-  //   //     onSuccess: (PendingDynamicLinkData? dynamicLink) async {
-  //   //   final Uri? deepLink = dynamicLink?.link;
-
-  //   //   if (deepLink != null) {
-  //   //     Navigator.push(
-  //   //       context,
-  //   //       MaterialPageRoute(
-  //   //         builder: (context) => BlocProvider(
-  //   //           create: (context) => RecipeDataBloc(),
-  //   //           child: RecipeData(
-  //   //             id: deepLink.queryParameters['id']!,
-  //   //           ),
-  //   //         ),
-  //   //       ),
-  //   //     );
-  //   //   }
-  //   // }, onError: (OnLinkErrorException e) async {
-  //   //   print('onLinkError');
-  //   //   print(e.message);
-  //   // });
-
-  //   final PendingDynamicLinkData? data =
-  //       await FirebaseDynamicLinks.instance.getInitialLink();
-  //   final Uri? deepLink = data?.link;
-
-  //   if (deepLink != null) {
-  //     Navigator.push(
-  //       context,
-  //       MaterialPageRoute(
-  //         builder: (context) => BlocProvider(
-  //           create: (context) => RecipeDataBloc(),
-  //           child: RecipeData(
-  //             id: deepLink.queryParameters['id']!,
-  //           ),
-  //         ),
-  //       ),
-  //     );
-
-//}
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +34,7 @@ class _HomepageState extends State<Homepage> {
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color(0xfff1bb274),
+          backgroundColor: const Color(0xfff1bb274),
           title: Text(
             "EasyCook",
             style: Theme.of(context).textTheme.headline1,
@@ -160,7 +114,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
             child: DelayedDisplay(
               delay: Duration(microseconds: 600),
               child: Text(
-                "Simple Way to find \nTasty food",
+                "Hello, \nHappy Cooking!",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 26,

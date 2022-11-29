@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -16,7 +15,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xfff1bb274),
+        backgroundColor: const Color(0xfff1bb274),
         title: Text(
           "EasyCook",
           style: Theme.of(context).textTheme.headline1,
@@ -26,14 +25,14 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Hello, ' + user.email!),
+            Text('Hello, ${user.email!}'),
             ElevatedButton(
                 onPressed: () {
                   FirebaseAuth.instance.signOut();
                   Navigator.of(context, rootNavigator: true)
                       .pushNamed("/LoginPage");
                 },
-                child: Text('Log out'))
+                child: const Text('Log out'))
           ],
         ),
       ),

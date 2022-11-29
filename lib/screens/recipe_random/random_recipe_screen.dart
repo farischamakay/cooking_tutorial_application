@@ -36,15 +36,13 @@ class _RandomRecipeState extends State<RandomRecipe> {
                 similarlist: state.similar,
               );
             } else if (state is RecipeRandomErrorState) {
-              return Center(
-                child: Container(
-                  child: Text("Error random"),
-                ),
+              return const Center(
+                child: Text("Error random"),
               );
             } else {
               return Center(
                 child: Container(
-                  child: Text("Waiting..."),
+                  child: const Text("Waiting..."),
                 ),
               );
             }

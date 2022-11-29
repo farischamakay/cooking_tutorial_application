@@ -16,9 +16,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   bool _passwordInVisible = true;
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   void dispose() {
@@ -106,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           _passwordInVisible
                                               ? Icons.visibility_off
                                               : Icons.visibility,
-                                          color: Color(0xfff1bb274),
+                                          color: const Color(0xfff1bb274),
                                         ),
                                         onPressed: () {
                                           setState(() {

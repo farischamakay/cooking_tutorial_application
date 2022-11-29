@@ -15,7 +15,7 @@ class FavoriteScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color(0xfff1bb274),
+          backgroundColor: const Color(0xfff1bb274),
           title: Text(
             "EasyCook",
             style: Theme.of(context).textTheme.headline1,
@@ -37,7 +37,7 @@ class FavoriteScreen extends StatelessWidget {
                       SizedBox(
                         width: 250,
                         child: Text(
-                          "You don't have any Favorite recipe yet.",
+                          "Tidak ada resep favorite.",
                           textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.headline1,
                         ),
