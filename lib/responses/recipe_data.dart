@@ -26,14 +26,17 @@ class GetRecipeData {
     var infoUrl = '$BASE_URL$id$INFORMATION_PATH&apiKey=$key';
     var similarUrl = '$BASE_URL$id$SIMILAR_PATH&apiKey=$key';
     var equipmentUrl = '$BASE_URL$id$EQUIPMENTS_PATH&apiKey=$key';
+
     Recipe recipeData;
     SimilarList similarList;
     EquipmentsList equipmentList;
+
     final response = await Future.wait([
       dio.get(infoUrl),
       dio.get(similarUrl),
       dio.get(equipmentUrl),
     ]);
+
     if (response[0].statusCode == 200) {
       recipeData = Recipe.fromJson(response[0].data);
     } else if (response[0].statusCode == 401) {
@@ -50,6 +53,7 @@ class GetRecipeData {
       throw Failure(
           code: response[1].statusCode!, message: response[1].statusMessage!);
     }
+
     if (response[2].statusCode == 200) {
       equipmentList = EquipmentsList.fromJson(response[2].data['equipment']);
     } else if (response[2].statusCode == 401) {

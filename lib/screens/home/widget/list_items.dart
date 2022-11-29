@@ -90,7 +90,7 @@ class _Listmealtate extends State<ListItem> {
                 Flexible(
                   flex: 2,
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,

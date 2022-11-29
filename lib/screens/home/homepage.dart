@@ -127,7 +127,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
           const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 26.0),
-            child: header("Popular Breakfast Recipes", "breakfast"),
+            child: header("Breakfast Recipes Ideas", "breakfast"),
           ),
           const SizedBox(height: 10),
           DelayedDisplay(
@@ -141,7 +141,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                header("Best Lunch Recipes", "lunch"),
+                header("Lunch Recipes Ideas", "lunch"),
                 ...widget.lunch.map((meal) {
                   return ListItem(
                     meal: meal,
@@ -152,7 +152,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 26.0),
-            child: header("Popular Drinks", "drinks"),
+            child: header("Drinks", "drinks"),
           ),
           const SizedBox(height: 10),
           FoodTypeWidget(items: widget.drinks),
@@ -161,7 +161,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                header("Best burgers Recipes", "burgers"),
+                header("Burger", "burgers"),
                 ...widget.burgers.map((meal) {
                   return ListItem(
                     meal: meal,
@@ -222,7 +222,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                   ),
                 );
               },
-              icon: Icon(Icons.arrow_forward_sharp))
+              icon: const Icon(Icons.arrow_forward_sharp))
         ],
       ),
     );

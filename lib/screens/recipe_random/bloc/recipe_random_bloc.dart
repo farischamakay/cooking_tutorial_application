@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import '../../../repository/recipe_random.dart';
+import '../../../responses/recipe_random.dart';
 import 'package:meta/meta.dart';
 import '../../models/recipe.dart';
 import '../../models/equipment.dart';

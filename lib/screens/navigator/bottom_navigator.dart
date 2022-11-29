@@ -7,6 +7,7 @@ import '../favorite/favorite_page.dart';
 import '../profile/profile_page.dart';
 import '../search/cubit/search_cubit.dart';
 import '../search/search_page.dart';
+import '../profile/profile_page.dart';
 
 class BottomNavigatorView extends StatefulWidget {
   static const nameRoute = '/bottomnav';

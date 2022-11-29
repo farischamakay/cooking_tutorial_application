@@ -14,6 +14,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   bool _passwordInVisible = true;
+  bool _passwordInVisible2 = true;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
@@ -41,6 +42,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
         _confirmPasswordController.text.trim()) {
       return true;
     } else {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text('Failed!'),
+              content:
+                  const Text('Please confirm your password same as password'),
+              actions: <Widget>[
+                TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('Close')),
+              ],
+            );
+          });
       return false;
     }
   }
@@ -106,7 +123,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               TextFieldContainer(
                                 child: TextFormField(
                                   controller: _passwordController,
-                                  obscureText: true,
+                                  obscureText: _passwordInVisible,
                                   cursorColor: Color(0xfff1bb274),
                                   decoration: InputDecoration(
                                       icon: const Icon(
@@ -136,8 +153,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               TextFieldContainer(
                                 child: TextFormField(
                                   controller: _confirmPasswordController,
-                                  obscureText: true,
-                                  cursorColor: Color(0xfff1bb274),
+                                  obscureText: _passwordInVisible2,
+                                  cursorColor: const Color(0xfff1bb274),
                                   decoration: InputDecoration(
                                       icon: const Icon(
                                         Icons.lock,
@@ -148,15 +165,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           fontFamily: 'OpenSans'),
                                       suffixIcon: IconButton(
                                         icon: Icon(
-                                          _passwordInVisible
+                                          _passwordInVisible2
                                               ? Icons.visibility_off
                                               : Icons.visibility,
                                           color: Color(0xfff1bb274),
                                         ),
                                         onPressed: () {
                                           setState(() {
-                                            _passwordInVisible =
-                                                !_passwordInVisible;
+                                            _passwordInVisible2 =
+                                                !_passwordInVisible2;
                                           });
                                         },
                                       ),
@@ -166,8 +183,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               RoundedButton(
                                   text: 'REGISTER',
                                   press: () {
-                                    signUp().onError((error, stackTrace) =>
-                                        print("Error ${error.toString()}"));
+                                    signUp().onError(
+                                        (error, stackTrace) => showDialog(
+                                            context: context,
+                                            builder: (context) {
+                                              return AlertDialog(
+                                                content: Text(error.toString()),
+                                              );
+                                            }));
                                   }),
                               const SizedBox(
                                 height: 10,

@@ -6,6 +6,7 @@ import 'forgot_password.dart';
 import '../screens/screens.dart';
 import '../widgets/widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:wc_form_validators/wc_form_validators.dart';
 
 class LoginScreen extends StatefulWidget {
   static const nameRoute = '/loginpage';
@@ -16,8 +17,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
+  final _formKey = GlobalKey<FormState>();
   bool _passwordInVisible = true;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -73,6 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 15,
                         ),
                         Form(
+                          key: _formKey,
                           child: Column(
                             children: [
                               TextFieldContainer(
@@ -88,6 +89,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                       hintStyle:
                                           TextStyle(fontFamily: 'OpenSans'),
                                       border: InputBorder.none),
+                                  validator: Validators.compose([
+                                    Validators.required('email is required'),
+                                    Validators.email('invalid email address')
+                                  ]),
                                 ),
                               ),
                               TextFieldContainer(
@@ -118,6 +123,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                         },
                                       ),
                                       border: InputBorder.none),
+                                  validator: Validators.compose([
+                                    Validators.required('password is required')
+                                  ]),
                                 ),
                               ),
                               Padding(
@@ -144,6 +152,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               RoundedButton(
                                   text: 'LOGIN',
                                   press: () {
+                                    if (_formKey.currentState!.validate()) {
+                                      print(_emailController.text.trim());
+                                      print(_passwordController.text.trim());
+                                      print('success');
+                                    }
                                     FirebaseAuth.instance
                                         .signInWithEmailAndPassword(
                                             email: _emailController.text.trim(),

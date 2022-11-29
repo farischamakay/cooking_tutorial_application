@@ -12,6 +12,12 @@ class ForgotPasswordPage extends StatefulWidget {
 class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   final _emailController = TextEditingController();
 
+  @override
+  void dispose() {
+    _emailController.dispose();
+    super.dispose();
+  }
+
   Future passwordReset() async {
     try {
       await FirebaseAuth.instance
@@ -19,9 +25,16 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       showDialog(
           context: context,
           builder: (context) {
-            return const AlertDialog(
-              content:
-                  Text('Password reset link sent! Please check your email'),
+            return AlertDialog(
+              content: const Text(
+                  'Password reset link sent! Please check your email'),
+              actions: <Widget>[
+                TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/LoginPage');
+                    },
+                    child: const Text('Oke')),
+              ],
             );
           });
     } on FirebaseAuthException catch (e) {
@@ -37,24 +50,21 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   }
 
   @override
-  void dispose() {
-    _emailController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Forgot Password'),
-        backgroundColor: Color(0xfff1bb274),
+        backgroundColor: const Color(0xfff1bb274),
       ),
       backgroundColor: const Color(0xffecebf3),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
-              'Enter your email and we will send you  a password reset link'),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 25.0),
+            child: Text(
+                'Enter your email and we will send you  a password reset link'),
+          ),
           const SizedBox(
             height: 20,
           ),

@@ -284,7 +284,7 @@ class _SearchAutoCompleteTileState extends State<SearchAutoCompleteTile> {
           ),
           title: Text(
             widget.list.name,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
       ),

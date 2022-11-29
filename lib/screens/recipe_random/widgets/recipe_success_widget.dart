@@ -105,7 +105,7 @@ class _RecipeDataWidgetState extends State<RecipeDataWidget> {
                   const Padding(
                     padding: EdgeInsets.all(26.0),
                     child: DelayedDisplay(
-                      delay: const Duration(microseconds: 700),
+                      delay: Duration(microseconds: 700),
                       child: Text(
                         "Ingredients",
                         style: TextStyle(
