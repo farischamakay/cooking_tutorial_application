@@ -53,6 +53,7 @@ dependencies:
   bottom_nav_bar:
     git:
       url: https://github.com/Ansh-Rathod/bottom_nav_bar
+  dropdown_plus: ^0.0.9
 
 dev_dependencies:
   flutter_test:

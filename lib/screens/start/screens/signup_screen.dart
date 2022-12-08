@@ -6,6 +6,7 @@ import '../widgets/widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUpScreen extends StatefulWidget {
+  static const nameRoute = '/signuppage';
   const SignUpScreen({Key? key}) : super(key: key);
 
   @override

@@ -3,6 +3,7 @@ import 'package:cooking_tutorial_application/screens/recipe_data/bloc/recipe_dat
 import 'package:cooking_tutorial_application/screens/recipe_random/random_recipe_screen.dart';
 import 'package:cooking_tutorial_application/screens/recipe_search_result/bloc/recipe_search_result_bloc.dart';
 import 'package:cooking_tutorial_application/screens/start/checking_page.dart';
+import 'package:cooking_tutorial_application/screens/start/screens/complete_profil.dart';
 import 'package:cooking_tutorial_application/screens/start/screens/forgot_password.dart';
 import 'package:cooking_tutorial_application/screens/start/screens/screens.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -56,14 +57,15 @@ class MyApp extends StatelessWidget {
               color: Colors.white),
         ),
       ),
-      initialRoute: Splash.nameRoutes,
+      initialRoute: CompleteProfilPage.nameRoute,
       debugShowCheckedModeBanner: false,
       routes: {
         Splash.nameRoutes: (context) => const Splash(),
         CheckingPage.nameRoute: (context) => const CheckingPage(),
-        '/LoginPage': (BuildContext context) => const LoginScreen(),
-        '/RegisterPage': (BuildContext context) => const SignUpScreen(),
+        LoginScreen.nameRoute: (BuildContext context) => const LoginScreen(),
+        SignUpScreen.nameRoute: (BuildContext context) => const SignUpScreen(),
         ForgotPasswordPage.nameRoute: (context) => const ForgotPasswordPage(),
+        CompleteProfilPage.nameRoute: (context) => const CompleteProfilPage(),
         Homepage.nameRoute: (context) => const Homepage(),
       },
     );
