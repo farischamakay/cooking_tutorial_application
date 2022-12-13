@@ -2,7 +2,7 @@ import 'package:cooking_tutorial_application/screens/recipe_data/recipe_data_scr
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../models/food_type.dart';
+import '../../../models/food_type.dart';
 import '../../recipe_data/bloc/recipe_data_bloc.dart';
 import '../../recipe_random/random_recipe_screen.dart';
 

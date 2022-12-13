@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
 import '../../../animation/animation.dart';
-import '../../models/equipment.dart';
-import '../../models/similar_result.dart';
-import '../../models/recipe.dart';
+import '../../../models/equipment.dart';
+import '../../../models/similar_result.dart';
+import '../../../models/recipe.dart';
 
 import 'appBar.dart';
 import 'equipments.dart';

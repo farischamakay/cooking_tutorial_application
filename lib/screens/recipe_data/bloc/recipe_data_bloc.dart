@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
-import 'package:cooking_tutorial_application/screens/models/recipe.dart';
+import 'package:cooking_tutorial_application/models/recipe.dart';
 import 'package:flutter/foundation.dart';
 import '../../../repository/recipe_data.dart';
-import '../../../screens/models/similar_result.dart';
-import '../../../screens/models/equipment.dart';
-import '../../../screens/models/failure.dart';
+import '../../../models/similar_result.dart';
+import '../../../models/equipment.dart';
+import '../../../models/failure.dart';
 
 part 'recipe_data_event.dart';
 part 'recipe_data_state.dart';

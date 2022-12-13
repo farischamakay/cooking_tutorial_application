@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import '../api/api_key.dart';
-import '../screens/models/food_type.dart';
+import '../models/food_type.dart';
 import 'recipe_data.dart';
-import '../screens/models/failure.dart';
+import '../models/failure.dart';
 
 class GetHomeRecipes {
   var key = ApiKey.keys;

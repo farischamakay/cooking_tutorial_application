@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import '../api/api_key.dart';
 import 'recipe_data.dart';
-import '../screens/models/recipe.dart';
-import '../screens/models/equipment.dart';
-import '../screens/models/similar_result.dart';
-import '../screens/models/failure.dart';
+import '../models/recipe.dart';
+import '../models/equipment.dart';
+import '../models/similar_result.dart';
+import '../models/failure.dart';
 
 // ignore: constant_identifier_names
 const RANDOM_RACIPE_PATH = '/random?number=1';

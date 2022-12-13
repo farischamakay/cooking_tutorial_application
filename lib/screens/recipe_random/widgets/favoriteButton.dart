@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import '../../models/recipe.dart';
+import '../../../models/recipe.dart';
 
 class FavoriteButton extends StatelessWidget {
   final Recipe info;
