@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import '../api/api_key.dart';
-import '../screens/models/failure.dart';
-import '../screens/models/auto_complete.dart';
-import '../screens/models/search_result.dart';
+import '../models/failure.dart';
+import '../models/auto_complete.dart';
+import '../models/search_result.dart';
 
 class SearchRepo {
   var key = ApiKey.keys;

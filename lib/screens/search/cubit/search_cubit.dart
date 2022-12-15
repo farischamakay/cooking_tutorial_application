@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import '../../models/auto_complete.dart';
+import '../../../models/auto_complete.dart';
 import '../../../repository/get_recipe_result.dart';
 
 part 'search_state.dart';

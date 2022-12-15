@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../models/similar_result.dart';
+import '../../../models/similar_result.dart';
 import '../../recipe_data/recipe_data_screen.dart';
 import '../../recipe_data/bloc/recipe_data_bloc.dart';
 

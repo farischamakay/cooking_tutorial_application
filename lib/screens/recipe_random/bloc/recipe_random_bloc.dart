@@ -2,10 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import '../../../repository/recipe_random.dart';
 import 'package:meta/meta.dart';
-import '../../models/recipe.dart';
-import '../../models/equipment.dart';
-import '../../models/similar_result.dart';
-import '../../models/failure.dart';
+import '../../../models/recipe.dart';
+import '../../../models/equipment.dart';
+import '../../../models/similar_result.dart';
+import '../../../models/failure.dart';
 
 part 'recipe_random_event.dart';
 part 'recipe_random_state.dart';

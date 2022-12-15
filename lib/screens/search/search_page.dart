@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../animation/animation.dart';
-import '../models/auto_complete.dart';
+import '../../models/auto_complete.dart';
 import '../recipe_data/bloc/recipe_data_bloc.dart';
 import '../recipe_data/recipe_data_screen.dart';
 import '../search/cubit/search_cubit.dart';

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../navigator/bottom_navigator.dart';
 import '../components/components.dart';
 import '../components/under_part.dart';
-import 'forgot_password.dart';
 import '../screens/screens.dart';
 import '../widgets/widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';

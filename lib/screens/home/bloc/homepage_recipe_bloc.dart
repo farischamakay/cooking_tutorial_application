@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import '../../models/failure.dart';
-import '../../models/food_type.dart';
+import '../../../models/failure.dart';
+import '../../../models/food_type.dart';
 import '../../../repository/recipe_homepage.dart';
 
 part 'homepage_recipe_event.dart';

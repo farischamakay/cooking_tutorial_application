@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import '../../models/recipe.dart';
+import '../../../models/recipe.dart';
 
 class IngredientsWidget extends StatelessWidget {
   final Recipe recipe;

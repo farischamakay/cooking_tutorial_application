@@ -29,11 +29,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Future signUp() async {
     if (passwordConfirmed()) {
-      await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-              email: _emailController.text.trim(),
-              password: _passwordController.text.trim())
-          .then((value) => Navigator.pushNamed(context, '/LoginPage'));
+      // await FirebaseAuth.instance
+      //     .createUserWithEmailAndPassword(
+      //         email: _emailController.text.trim(),
+      //         password: _passwordController.text.trim())
+      //     .then((value) => Navigator.pushNamed(context, '/LoginPage'));
+      Navigator.pushNamed(context, CompleteProfilPage.nameRoute);
     }
   }
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../recipe_search_result/recipe_search_result.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../animation/animation.dart';
-import '../models/food_type.dart';
+import '../../models/food_type.dart';
 import '../home/bloc/homepage_recipe_bloc.dart';
 import '../home/widget/food_category_list.dart';
 import '../home/widget/horizontal_list.dart';

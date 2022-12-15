@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import '../models/recipe.dart';
-import '../models/food_type.dart';
+import '../../models/recipe.dart';
+import '../../models/food_type.dart';
 import '../home/widget/list_items.dart';
 
 class FavoriteScreen extends StatelessWidget {
