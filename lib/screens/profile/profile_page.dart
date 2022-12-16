@@ -34,11 +34,11 @@ class _ProfilePageState extends State<ProfilePage> {
                           color: Colors.white,
                           shape: BoxShape.circle,
                           image: const DecorationImage(
-                            image: AssetImage('assets/profile.jpg'),
-                            fit: BoxFit.cover,
+                            image: AssetImage('assets/profile.png'),
+                            // fit: BoxFit.cover,
                           ),
                           border: Border.all(
-                            color: Colors.white,
+                            color: Colors.grey,
                             width: 2.0,
                           ),
                         ),

@@ -10,6 +10,7 @@ import 'package:cooking_tutorial_application/screens/start/screens/category_scre
 import 'package:cooking_tutorial_application/screens/start/screens/complete_profil.dart';
 import 'package:cooking_tutorial_application/screens/start/screens/forgot_password.dart';
 import 'package:cooking_tutorial_application/screens/start/screens/screens.dart';
+import 'package:cooking_tutorial_application/screens/start/screens/user_preferences.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -83,6 +84,7 @@ class MyApp extends StatelessWidget {
         ForgotPasswordPage.nameRoute: (context) => const ForgotPasswordPage(),
         CompleteProfilPage.nameRoute: (context) => const CompleteProfilPage(),
         CategoryPage.routeName: (context) => const CategoryPage(),
+        UserPreferencesPage.routeName: (context) => const UserPreferencesPage(),
         Homepage.nameRoute: (context) => const Homepage(),
       },
     );

@@ -42,7 +42,7 @@ class _SplashState extends State<Splash> {
             height: 10,
           ),
           const SpinKitThreeBounce(
-            color: Colors.red,
+            color: Color(0xfff1bb274),
             size: 50.0,
           ),
         ],
